@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Secret Familly Gift</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-woox-travel.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{% static 'index.html' %}" class="logo">
+                        <!-- <img src=" {% static 'assets/images/logo.png' %} " alt=""> -->
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <!-- <li><a href="index.html">Home</a></li> -->
+                        <li><a href="{% url 'home' %}" class="active">About</a></li>
+                        <!-- <li><a href="deals.html">Deals</a></li> -->
+                        <li><a href="{% url 'participation' %}" >Participer</a></li>
+                        <!-- <li><a href="reservation.html">Book Yours</a></li> -->
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <div class="about-main-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="content">
+            <div class="blur-bg"></div>
+           
+            <h2>Bienvenue sur SECRET GIFT</h2>
+            <h4>RECEVEZ VOTRE CADEAU SURPRISE</h4>
+            <div class="line-dec"></div>
+              <p> 
+                La magie des fêtes est dans l'air, et cette année, nous voulons répandre la joie d'une manière spéciale 
+                et quoi de mieux que de répandre la joie avec un peu de mystère ?
+                Nous vous invitons à participer à notre jeu des Cadeaux Secrets de Fin d'Année !
+
+                C'est une occasion amusante de partager un peu de chaleur pendant les fêtes. 
+                Inscrivez-vous maintenant et laissez la magie opérer ! 🎅🎉
+                <br>
+                <br>
+
+                Joyeuses fêtes de fin d'année et merci d'avance pour votre participation !
+              </p>
+            <div class="main-button">
+              <a href="{% url 'participation' %}">C'est parti !</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2023 <a href="#">Dhalil Developper</a>. All rights reserved. 
+          <!-- <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p> -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/wow.js' %}"></script>
+  <script src="{% static 'assets/js/tabs.js' %}"></script>
+  <script src="{% static 'assets/js/popup.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  <script>
+    $(".option").click(function(){
+      $(".option").removeClass("active");
+      $(this).addClass("active"); 
+    });
+  </script>
+
+  </body>
+
+</html>
