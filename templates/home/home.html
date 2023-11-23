@@ -46,16 +46,14 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="{% static 'index.html' %}" class="logo">
-                        <!-- <img src=" {% static 'assets/images/logo.png' %} " alt=""> -->
+                      <img src=" {% static 'assets/images/logo.jfif' %} " style="width:50px;">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <!-- <li><a href="index.html">Home</a></li> -->
-                        <li><a href="{% url 'home' %}" class="active">About</a></li>
-                        <!-- <li><a href="deals.html">Deals</a></li> -->
-                        <li><a href="{% url 'participation' %}" >Participer</a></li>
-                        <!-- <li><a href="reservation.html">Book Yours</a></li> -->
+                      <li><a href="{% url 'home' %}" class="active">About</a></li>
+                      <li><a href="{% url 'participation' %}" >Participer</a></li>
+                      <li><a href="{% url 'secrets' %}" >secrets</a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
