@@ -42,4 +42,7 @@ class Tj_user_preson_secret(models.Model):
  
     
 
- 
+class Visitor(models.Model):
+    ip_address = models.GenericIPAddressField()
+    user_agent = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)

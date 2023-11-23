@@ -15,7 +15,9 @@ def participation(request):
         participation
     """
     context = {}
-
+    visitor_count = Visitor.objects.count()
+    # context['visitor_count'] = visitor_count
+    context['visitor_count'] = request.visitor_count
     if 'voeux' in request.POST:
         prenom = request.POST.get('prenom').upper()
         nom = request.POST.get('nom').upper()

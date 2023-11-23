@@ -17,7 +17,7 @@
   z-index: 10;
 
   & > div {
-    background: #34495e;
+    background: #e03412;
     position: absolute;
 
     &:after,
@@ -45,7 +45,7 @@
     width: 100%;
     top: 30px;
     left: 0;
-    height: 5vh;
+    height: 4vh;
     z-index: 2;
 
     &:before {
