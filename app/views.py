@@ -21,7 +21,7 @@ def participation(request):
     if 'voeux' in request.POST:
         prenom = request.POST.get('prenom').upper()
         nom = request.POST.get('nom').upper()
-        souhait = request.POST.get('souhait')
+        souhait = request.POST.get('souhait').upper()
         MessagSuccess =""
         MessagError= ""
 

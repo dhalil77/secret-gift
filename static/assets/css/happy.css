@@ -42,9 +42,9 @@
   }
 
   .cover {
-    width: 100%;
-    top: 30px;
-    left: 0;
+    width: 96%;
+    top: 10px;
+    left: 15px;
     height: 4vh;
     z-index: 2;
 
@@ -89,9 +89,9 @@
   }
 
   .box {
-    right: 2vw;
-    left: 2vw;
-    height: 50vh;
+    right: 7vw;
+    left: 7vw;
+    height: 45vh;
     bottom: 0;
 
     &:before {
