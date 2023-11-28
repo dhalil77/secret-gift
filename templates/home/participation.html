@@ -45,7 +45,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="{% static 'index.html' %}" class="logo">
+                    <a href="{% url 'home' %}" class="logo">
                       <img src=" {% static 'assets/images/logo.jfif' %} " style="width:50px;">
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -78,7 +78,7 @@
                 <h4>Envoie ton <em>voeux</em> <img src=" {% static 'assets/images/gitft.gif' %} " style="width:70px;"> </h4>
               </div>
 
-              <center><span style="color:red; margin-top:-65px">Note: un voeux formulé ne doit pas depasser 30€</span></center>
+              <center><span style="color:red; margin-top:-105px"> Modalité : Suggerer des idées de cadeau d'un montant d'environ 30€ (on joue le jeu svp)</span></center>
 
               <div id="zonedenotification" class="col-sm-12">
                 <center > <p style="color:green; font-size: 22px; "> <em>{{ MessagSuccess }}</em>  </p> </center>
@@ -104,7 +104,7 @@
 
               <div class="col-lg-12">
                   <fieldset>
-                      <label for="chooseDestination" class="form-label">ton voeux </label>
+                      <label for="chooseDestination" class="form-label" style="color:#c89116;">Ecris une lettre avec des idées/suggestions de cadeaux </label>
                       <input type="text" name="souhait"  autocomplete="on" required style="height:150px;">
                   </fieldset>
               </div>
@@ -133,6 +133,9 @@
           <p>Copyright © 2023 <a href="#">Dhalil Developper</a>. All rights reserved. 
             <span> <p>Total Visitors: {{ visitor_count }}</p> </span></p>
         </div>
+        <audio style="display:none;" controls autoplay>
+            <source src="{% static 'assets/images/sound2.mpeg'%}" type="audio/mpeg" media="(max-width: 480px)">
+        </audio> 
       </div>
     </div>
   </footer>

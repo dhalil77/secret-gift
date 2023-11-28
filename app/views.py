@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import *
 from django.db import transaction
 import random
+from django.core.mail import send_mail
+from django.shortcuts import render
+
 from django.http import HttpResponse
 
 def home(request):
@@ -41,7 +44,15 @@ def participation(request):
                 )
                 record_user_secret.save()
 
-                MessagSuccess =  " Un immense merci " + prenom  +" pour avoir partagé ton précieux vœu avec nous."
+                MessagSuccess =  " Un immense merci " + prenom  +" pour avoir partagé ton précieux vœu."
+
+                # sujet = 'Test d\'e-mail avec Django'
+                # message = 'Ceci est un test d\'e-mail avec Django.'
+                # de_email = 'dhalson1lm@gmail.com'
+                # destinataires = ['ktchibonsou@yahoo.com']
+
+                # # Utiliser la fonction send_mail pour envoyer l'e-mail
+                # send_mail(sujet, message, de_email, destinataires, fail_silently=False)
 
         else:
             MessagError = "l'utilisateur existe déja"
@@ -76,7 +87,6 @@ def secrets(request):
                 nom_choisi = random.choice(available_names)
                 chosen_last_name, chosen_first_name = nom_choisi.split('_')
                 user.r_user_jouer = True
-                print(user.r_user_jouer)
                 user.save()
 
                 users_secret = R_user_secret.objects.filter(r_user_secret_prenom=chosen_first_name, r_user_secret_nom=chosen_last_name).first()
