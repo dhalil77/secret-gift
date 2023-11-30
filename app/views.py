@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import *
 from django.db import transaction
 import random
+from django.conf import settings 
+from secret_family.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 from django.shortcuts import render
 
@@ -25,6 +27,7 @@ def participation(request):
         prenom = request.POST.get('prenom').upper()
         nom = request.POST.get('nom').upper()
         souhait = request.POST.get('souhait').upper()
+        mail = request.POST.get('email').lower()
         MessagSuccess =""
         MessagError= ""
 
@@ -35,6 +38,7 @@ def participation(request):
                     r_user_nom = nom,
                     r_user_prenom =prenom,
                     r_user_voeux = souhait,
+                    r_user_email = mail,
                 )
                 record_user.save()
 
@@ -46,13 +50,13 @@ def participation(request):
 
                 MessagSuccess =  " Un immense merci " + prenom  +" pour avoir partagé ton précieux vœu."
 
-                # sujet = 'Test d\'e-mail avec Django'
-                # message = 'Ceci est un test d\'e-mail avec Django.'
-                # de_email = 'dhalson1lm@gmail.com'
-                # destinataires = ['ktchibonsou@yahoo.com']
-
-                # # Utiliser la fonction send_mail pour envoyer l'e-mail
-                # send_mail(sujet, message, de_email, destinataires, fail_silently=False)
+                sujet = 'Secret Gift e-mail'
+                message = "Un immense merci " + prenom  +" pour avoir partagé ton précieux vœu. \n  \n Merci. \n Dhalil"
+                # de_email = settings.EMAIL_HOST_USER 
+                destinataires = [mail]
+                print(destinataires)
+                # Utiliser la fonction send_mail pour envoyer l'e-mail
+                send_mail(sujet, message, EMAIL_HOST_USER, destinataires, fail_silently=False)
 
         else:
             MessagError = "l'utilisateur existe déja"
@@ -89,6 +93,8 @@ def secrets(request):
                 user.r_user_jouer = True
                 user.save()
 
+                mail = user.r_user_email
+
                 users_secret = R_user_secret.objects.filter(r_user_secret_prenom=chosen_first_name, r_user_secret_nom=chosen_last_name).first()
                 user_voeu = R_user.objects.filter(r_user_prenom=chosen_first_name, r_user_nom=chosen_last_name).first()
 
@@ -104,6 +110,15 @@ def secrets(request):
 
                 context['nom_choisi'] = f"{users_secret.r_user_secret_nom} {users_secret.r_user_secret_prenom}"
                 context['Voeu'] = user_voeu.r_user_voeux
+
+                sujet = 'Secret Gift'
+                message = "Personne secrete : " + context['nom_choisi']  +" \n son souhait : " + context['Voeu'] + " \n \n Merci.  "
+                # de_email = settings.EMAIL_HOST_USER 
+                destinataires = [mail]
+
+                # Utiliser la fonction send_mail pour envoyer l'e-mail
+                send_mail(sujet, message, EMAIL_HOST_USER, destinataires, fail_silently=False)
+
 
                 return render(request, 'home/secret_person.html', context)
             else:

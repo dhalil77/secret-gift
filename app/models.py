@@ -7,7 +7,8 @@ class R_user(models.Model):
     """
     r_user_id = models.AutoField(primary_key=True, auto_created = True)         
     r_user_nom = models.CharField(max_length=255)  
-    r_user_prenom = models.CharField(max_length=255) 
+    r_user_prenom = models.CharField(max_length=255)
+    r_user_email = models.CharField(max_length=255) 
     r_user_voeux = models.CharField(max_length=500)
     r_user_jouer = models.BooleanField(default=False) 
     r_user_created_at = models.DateTimeField(auto_now_add=True) 
